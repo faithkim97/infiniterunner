@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MakeMoreSpheres : MonoBehaviour {
     GameObject ball;
+    float zDist = -49.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,7 +13,8 @@ public class MakeMoreSpheres : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         MakeBall();
-        ball.transform.position = new Vector3(0.07f, 0.69f, -49.0f);
+        ball.transform.position = new Vector3(0.07f, 0.69f, zDist);
+        zDist += 5;
 	}
 
     void MakeBall()
@@ -23,6 +25,9 @@ public class MakeMoreSpheres : MonoBehaviour {
         Material newMaterial = new Material(Shader.Find("Diffuse"));
         newMaterial.color = color;
         ballRenderer.material = newMaterial;
+        //add necessary components 
+        //add move ball
+        MoveBall moveball = ball.AddComponent<MoveBall>(); 
 
     }
 

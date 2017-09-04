@@ -20,8 +20,11 @@ public class DestroyBall : MonoBehaviour {
 	}
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
+   
     {
+        Debug.Log("entered trigger");
+        
          //if not correct input pressed
         if ( (other.gameObject.CompareTag( "red") && !Input.GetKeyDown(KeyCode.UpArrow)) ||
             ( other.gameObject.CompareTag("blue") && !Input.GetKeyDown(KeyCode.RightArrow)) ||
@@ -31,7 +34,11 @@ public class DestroyBall : MonoBehaviour {
             //Put game over sign and go back to menu--didn't do that yet
             Application.Quit();
         }//end of if
+        
 
+     
+
+       
         else
         {
             Destroy(other.gameObject);
@@ -41,6 +48,7 @@ public class DestroyBall : MonoBehaviour {
 
 
         }
+        
     }//end of OnTriggerEnter
 
     void SetCountText()

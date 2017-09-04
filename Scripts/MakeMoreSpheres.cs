@@ -25,6 +25,7 @@ public class MakeMoreSpheres : MonoBehaviour {
         //add move ball
         MoveBall moveball = ball.AddComponent<MoveBall>(); 
 
+
     }
 
     private Color createRandomColor()

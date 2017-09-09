@@ -7,10 +7,12 @@ public class DestroyBall : MonoBehaviour {
     private int scoreCount;
     public int globalScore; 
     public Text score;
+    public Text bestScore;
 	
     // Use this for initialization
 	void Start () {
        globalScore = scoreCount = 0;
+    
         SetCountText();
 
 		
@@ -35,6 +37,9 @@ public class DestroyBall : MonoBehaviour {
         {
             //Put game over sign and go back to menu--didn't do that yet
             Debug.Log("FAIL");
+            globalScore = scoreCount;
+            bestScore.text = "Best Score: " + globalScore.ToString();
+            scoreCount = 0;
             Application.Quit();
         }//end of if
         
@@ -46,7 +51,7 @@ public class DestroyBall : MonoBehaviour {
         {
             Destroy(other.gameObject);
             //score goes up by two points for each object
-            globalScore = scoreCount = scoreCount + 2;
+            scoreCount = scoreCount + 2;
             SetCountText();
 
 

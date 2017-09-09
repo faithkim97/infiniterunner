@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class DestroyBall : MonoBehaviour {
     private int scoreCount;
+    public int globalScore; 
     public Text score;
-
-	// Use this for initialization
+	
+    // Use this for initialization
 	void Start () {
-        scoreCount = 0;
+       globalScore = scoreCount = 0;
         SetCountText();
+
 		
 	}
 	
@@ -32,6 +34,7 @@ public class DestroyBall : MonoBehaviour {
             ( other.gameObject.CompareTag("green" ) && !Input.GetKeyDown(KeyCode.LeftArrow)) )
         {
             //Put game over sign and go back to menu--didn't do that yet
+            Debug.Log("FAIL");
             Application.Quit();
         }//end of if
         
@@ -43,7 +46,7 @@ public class DestroyBall : MonoBehaviour {
         {
             Destroy(other.gameObject);
             //score goes up by two points for each object
-            scoreCount = scoreCount + 2;
+            globalScore = scoreCount = scoreCount + 2;
             SetCountText();
 
 

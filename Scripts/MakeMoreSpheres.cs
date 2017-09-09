@@ -5,9 +5,9 @@ using UnityEngine;
 public class MakeMoreSpheres : MonoBehaviour {
     GameObject ball;
     float zDist = -49.0f;
-	
-	// Update is called once per frame
-	void Update () {
+ 
+    // Update is called once per frame
+    void Update () {
         MakeBall();
         ball.transform.position = new Vector3(0.07f, 0.69f, zDist);
         zDist += 2;
